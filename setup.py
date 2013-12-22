@@ -19,7 +19,8 @@ requires = [
     'js.jquery',
     'pyramid_twitterauth',
     'pyramid_celery',
-    ]
+    'pyramid_fanstatic',
+]
 
 setup(name='second_project',
       version='0.0',
