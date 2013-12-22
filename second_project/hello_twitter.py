@@ -11,8 +11,8 @@ class MyView(object):
 
     def __call__(self):
 	# e.g.: in a view callable
-        if request.twitter.has_read_access:
-            request.twitter.client.update_status('OMG #lolcats')
+        if self.request.twitter.has_read_access:
+            self.request.twitter.client.update_status('OMG #lolcats')
         return Response('hello')
 
 if __name__ == '__main__':
