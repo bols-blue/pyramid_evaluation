@@ -65,10 +65,10 @@ def forbidden_view(request):
     loc = request.route_url('login', _query=(('next', request.path),))
     return HTTPFound(location=loc)
 
-@view_config(
-    route_name='home',
-    renderer='home.mako',
-)
+# @view_config(
+#     route_name='home',
+#     renderer='home.mako',
+# )
 def home_view(request):
     login = authenticated_userid(request)
     user = USERS.get(login)

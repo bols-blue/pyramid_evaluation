@@ -5,6 +5,8 @@ from sqlalchemy import engine_from_config
 from pyramid.authentication import AuthTktAuthenticationPolicy
 from pyramid.authorization import ACLAuthorizationPolicy
 
+import app
+
 from .models import (
     DBSession,
     Base,
@@ -27,6 +29,7 @@ def main(global_config, **settings):
     config.include('pyramid_simpleauth')
     config.include('pyramid_twitterauth')
     config.include('pyramid_basemodel')
+    config.include('pyramid_fanstatic')
 
     # Either include `pyramid_tm` or deal with committing transactions yourself.
     config.include('pyramid_tm')
@@ -42,6 +45,9 @@ def main(global_config, **settings):
         authorization_policy=authz_policy,
     )
 
+    config.add_static_view('assets', 'assets/resources', cache_max_age=3600)
+    config.include(app)
+
     config.add_route('login', '/login')
     config.add_route('logout', '/logout')
 
@@ -54,7 +60,7 @@ def main(global_config, **settings):
     config.add_route('edit_page', '/page/{title}/edit')
 
     config.add_static_view('static', 'static', cache_max_age=3600)
-    config.add_route('home', '/')
+    # config.add_route('home', '/')
     config.add_route('test', '/test/')
     config.add_route('hello', '/hello/')
     config.add_route('twitter', '/twitter/')

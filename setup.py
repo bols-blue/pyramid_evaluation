@@ -15,7 +15,10 @@ requires = [
     'zope.sqlalchemy',
     'waitress',
     'pyramid_beaker',
+    'js.bootstrap',
+    'js.jquery',
     'pyramid_twitterauth',
+    'pyramid_celery',
     ]
 
 setup(name='second_project',
