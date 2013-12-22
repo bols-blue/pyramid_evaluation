@@ -14,7 +14,7 @@ requires = [
     'pyramid_debugtoolbar',
     'zope.sqlalchemy',
     'waitress',
-    'pyramid_beaker'
+    'pyramid_beaker',
     'pyramid_twitterauth',
     ]
 
